@@ -21,3 +21,12 @@
     - else
       %strong
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+    .comments
+      %h4 コメント一覧
+      - if @comments
+        - @comments.each do |comment|
+          %p
+            %strong
+              = link_to comment.user.nickname, "/users/#{comment.user_id}"
+              ：
+            = comment.text
